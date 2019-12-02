@@ -9,10 +9,10 @@ import java.util.*
 import kotlin.reflect.typeOf
 
 @Service
-class ArticleService {
+class ArticleService(s3Client: S3Client) {
 
     val directory = System.getProperty("user.dir")
-    fun saveImage(byteArray: String, s3Client: S3Client) {
+    fun saveImage(byteArray: String) {
         val path = Paths.get(directory,UUID.randomUUID().toString()+".jpg")
         Files.createFile(path)
         path.toFile().writeBytes(Base64.getDecoder().decode(byteArray))

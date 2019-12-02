@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController
 class ArticleController(val articleService: ArticleService) {
 
     @PostMapping("/upload")
-    fun savweImage(@RequestBody page: Page) = articleService.saveImage(page.content[0].imageBytes)
+    fun savweImage(@RequestBody page: Page) = articleService.saveImage(page.content[0].imageString)
 
     @PostMapping("/quick")
-    fun quickImage(@RequestBody entry: Entry) = articleService.saveImage(entry.imageBytes)
+    fun quickImage(@RequestBody entry: Entry) = articleService.saveImage(entry.imageString)
 }
